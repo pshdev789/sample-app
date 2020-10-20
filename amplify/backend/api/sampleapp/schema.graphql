@@ -1,0 +1,24 @@
+type Query {
+	# getCampaign(id: ID!): Campaign
+	# listCampaigns(filter: ModelCampaignFilterInput, limit: Int, nextToken: String): ModelCampaignConnection
+	# getCompany(id: ID!): Company
+	# listCompanys(filter: ModelCompanyFilterInput, limit: Int, nextToken: String): ModelCompanyConnection
+  retrieveCampaigns: [Campaign] @function(name:"campaign-${env}")
+}
+
+type Campaign @model{
+  campaignDesc: String
+  campaignName: String
+  company: Company! @connection (name: "campaignCompany")
+  # companyId: String
+  id: ID!
+}
+
+type Company @model{
+  apikey: String
+  campaign: [Campaign] @connection (name: "campaignCompany")
+  description: String
+  id: ID!
+  name: String
+}
+
