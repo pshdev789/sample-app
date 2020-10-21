@@ -1,6 +1,72 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const addCampaign = /* GraphQL */ `
+  mutation AddCampaign($input: CreateCampaignInput!) {
+    addCampaign(input: $input) {
+      campaignDesc
+      campaignName
+      company {
+        apikey
+        campaign {
+          nextToken
+        }
+        description
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      id
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const removeCampaign = /* GraphQL */ `
+  mutation RemoveCampaign($input: DeleteCampaignInput!) {
+    removeCampaign(input: $input) {
+      campaignDesc
+      campaignName
+      company {
+        apikey
+        campaign {
+          nextToken
+        }
+        description
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      id
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const modifyCampaign = /* GraphQL */ `
+  mutation ModifyCampaign($input: UpdateCampaignInput!) {
+    modifyCampaign(input: $input) {
+      campaignDesc
+      campaignName
+      company {
+        apikey
+        campaign {
+          nextToken
+        }
+        description
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      id
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const createCampaign = /* GraphQL */ `
   mutation CreateCampaign(
     $input: CreateCampaignInput!

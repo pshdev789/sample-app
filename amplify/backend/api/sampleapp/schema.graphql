@@ -1,24 +1,46 @@
 type Query {
-	# getCampaign(id: ID!): Campaign
-	# listCampaigns(filter: ModelCampaignFilterInput, limit: Int, nextToken: String): ModelCampaignConnection
-	# getCompany(id: ID!): Company
-	# listCompanys(filter: ModelCompanyFilterInput, limit: Int, nextToken: String): ModelCompanyConnection
-  retrieveCampaigns: [Campaign] @function(name:"campaign-${env}")
+  retrieveCampaigns: [Campaign] @function(name: "newfun-${env}")
 }
 
-type Campaign @model{
+type Mutation {
+  addCampaign(input: CreateCampaignInput!): Campaign
+    @function(name: "newfun-${env}")
+  removeCampaign(input: DeleteCampaignInput!): Campaign
+    @function(name: "newfun-${env}")
+  modifyCampaign(input: UpdateCampaignInput!): Campaign
+    @function(name: "newfun-${env}")
+}
+
+input DeleteCampaignInput {
+  id: ID
+}
+
+input UpdateCampaignInput {
   campaignDesc: String
   campaignName: String
-  company: Company! @connection (name: "campaignCompany")
+  id: ID!
+  campaignCompanyId: ID
+}
+
+input CreateCampaignInput {
+  campaignDesc: String
+  campaignName: String
+  id: ID
+  campaignCompanyId: ID!
+}
+
+type Campaign @model {
+  campaignDesc: String
+  campaignName: String
+  company: Company! @connection(name: "campaignCompany")
   # companyId: String
   id: ID!
 }
 
-type Company @model{
+type Company @model {
   apikey: String
-  campaign: [Campaign] @connection (name: "campaignCompany")
+  campaign: [Campaign] @connection(name: "campaignCompany")
   description: String
   id: ID!
   name: String
 }
-
