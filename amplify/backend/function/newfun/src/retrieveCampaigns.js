@@ -9,6 +9,11 @@ async function retrieveCampaigns() {
 
   try {
     const data = await db.scan(params).promise();
+    // const data = await db.scan(params).promise(() =>
+    //   setTimeout(() => {
+    //     callback(null, "response");
+    //   }, 1000)
+    // );
     console.log(" Retrieved DATAA", data);
     const { Items } = data;
 

@@ -1,5 +1,6 @@
 type Query {
-  retrieveCampaigns: [Campaign] @function(name: "newfun-${env}")
+  # retrieveCampaigns: [Campaign] @function(name: "newfun-${env}")
+  campaigns: [Campaign] @function(name: "newfun-${env}")
 }
 
 type Mutation {

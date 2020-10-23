@@ -66,7 +66,7 @@
         },
         "Runtime": "nodejs12.x",
         "Layers": [],
-        "Timeout": "25",
+        "Timeout": "800",
         "Code": {
           "S3Bucket": "amplify-sampleapp-dev-154238-deployment",
           "S3Key": "amplify-builds/newfun-4c45365068536c697a76-build.zip"
